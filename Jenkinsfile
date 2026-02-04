@@ -2,22 +2,24 @@ pipeline {
     agent any
 
     environment {
-        JMETER_HOME = "E:\\JMETER\apache-jmeter-5.6.2\"
+        JMETER_HOME = 'E:\JMETER\apache-jmeter-5.6.3'
     }
 
     stages {
-        stage('Checkout') {
+
+        stage('Verify JMeter') {
             steps {
-                echo 'Code checked out from Git'
+                bat "%JMETER_HOME%\\bin\\jmeter.bat -v"
             }
         }
 
         stage('Run JMeter Test') {
             steps {
                 bat """
-                %JMETER_HOME%\\bin\\jmeter.bat -n ^
+                mkdir results
+                "%JMETER_HOME%\\bin\\jmeter.bat" -n ^
                 -t jmeter-tests\\test.jmx ^
-                -l results.jtl
+                -l results\\results.jtl
                 """
             }
         }
