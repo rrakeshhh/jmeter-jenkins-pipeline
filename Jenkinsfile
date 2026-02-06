@@ -18,7 +18,7 @@ pipeline {
                 bat """
                 if not exist results mkdir results
                 "%JMETER_HOME%/bin/jmeter.bat" -n ^
-                -t jmeter-tests/test.jmx ^
+                -t jmeter-tests/GRAFANA_sample.jmx ^
                 -l results/results.jtl
                 """
             }
