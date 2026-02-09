@@ -16,35 +16,35 @@ pipeline {
         stage('Run JMeter Tests in Parallel') {
             parallel {
 
-                stage('Login Test') {
+                stage('FirstName Test') {
                     steps {
                         bat """
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
-                        -t jmeter-tests\\login.jmx ^
-                        -l results\\login.jtl
+                        -t jmeter-tests\\HRM_FNAME.jmx ^
+                        -l results\\FNAME.jtl
                         """
                     }
                 }
 
-                stage('Search Test') {
+                stage('MiddleName Test') {
                     steps {
                         bat """
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
-                        -t jmeter-tests\\search.jmx ^
-                        -l results\\search.jtl
+                        -t jmeter-tests\\HRM_MNAME.jmx ^
+                        -l results\\MNAME.jtl
                         """
                     }
                 }
 
-                stage('Checkout Test') {
+                stage('LastName Test') {
                     steps {
                         bat """
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
-                        -t jmeter-tests\\checkout.jmx ^
-                        -l results\\checkout.jtl
+                        -t jmeter-tests\\HRM_LNAME.jmx ^
+                        -l results\\LNAME.jtl
                         """
                     }
                 }
