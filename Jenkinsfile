@@ -22,7 +22,7 @@ pipeline {
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
                         -t jmeter-tests\\HRM_FNAME.jmx ^
-                        -l results\\FNAME.jtl
+                        -l results\\Jenkins_Smoke.jtl
                         """
                     }
                 }
@@ -33,7 +33,7 @@ pipeline {
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
                         -t jmeter-tests\\HRM_MNAME.jmx ^
-                        -l results\\MNAME.jtl
+                        -l results\\Jenkins_Smoke.jtl
                         """
                     }
                 }
@@ -44,7 +44,7 @@ pipeline {
                         if not exist results mkdir results
                         "${JMETER_HOME}\\bin\\jmeter.bat" -n ^
                         -t jmeter-tests\\HRM_LNAME.jmx ^
-                        -l results\\LNAME.jtl
+                        -l results\\Jenkins_Smoke.jtl
                         """
                     }
                 }
